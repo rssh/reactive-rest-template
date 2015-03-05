@@ -6,35 +6,36 @@ This template is example of reactive REST service builded with Play2 Framework.
 # Group Test
 Test API object
 
-## Notes Collection [/v1/test]
+## Notes Collection [/api/v1/testObject]
 ### List all Test objects [GET]
 + Response 200 (application/json)
 
         [{
-          "id": 1, "title": "Jogging in park"
+          "_id": "54f8806b5000004401581de4", "title": "Test", "uniqueField": "unique", "age": 18
         }, {
-          "id": 2, "title": "Pick-up posters from post-office"
+          "_id": "54f891165000004f02581de9", "title": "Test", "uniqueField": "unique1", "age": 18
         }]
+
 
 ### Create Test object [POST]
 + Request (application/json)
 
-        { "title": "Buy cheese and bread for breakfast." }
+        {"title": "Test", "uniqueField": "unique", "age": 18 }
 
 + Response 201 (application/json)
 
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+        { "_id": "54f8806b5000004401581de4", "title": "Test", "uniqueField": "unique", "age": 18 }
 
-## Note [/v1/test/{id}]
+## Note [/api/v1/testObject/{id}]
 A single Test object with all its details
 
 + Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+    + id (required, string, `54f8806b5000004401581de4`) ... String `id` of the object to perform action with. Has example value.
 
 ### Retrieve a Test object [GET]
 + Response 200 (application/json)
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
+            { "_id": "54f8806b5000004401581de4", "title": "Test", "uniqueField": "unique", "age": 18 }
 
 ### Remove a Test object [DELETE]
 + Response 204
