@@ -1,13 +1,13 @@
 FORMAT: 1A
 
-# helloworld
-Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+# Reactive REST template
+This template is example of reactive REST service builded with Play2 Framework.
 
-# Group Notes
-Notes related resources of the **Notes API**
+# Group Test
+Test API object
 
-## Notes Collection [/notes]
-### List all Notes [GET]
+## Notes Collection [/v1/test]
+### List all Test objects [GET]
 + Response 200 (application/json)
 
         [{
@@ -16,7 +16,7 @@ Notes related resources of the **Notes API**
           "id": 2, "title": "Pick-up posters from post-office"
         }]
 
-### Create a Note [POST]
+### Create Test object [POST]
 + Request (application/json)
 
         { "title": "Buy cheese and bread for breakfast." }
@@ -25,22 +25,16 @@ Notes related resources of the **Notes API**
 
         { "id": 3, "title": "Buy cheese and bread for breakfast." }
 
-## Note [/notes/{id}]
-A single Note object with all its details
+## Note [/v1/test/{id}]
+A single Test object with all its details
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
 
-### Retrieve a Note [GET]
+### Retrieve a Test object [GET]
 + Response 200 (application/json)
-
-    + Header
-
-            X-My-Header: The Value
-
-    + Body
 
             { "id": 2, "title": "Pick-up posters from post-office" }
 
-### Remove a Note [DELETE]
+### Remove a Test object [DELETE]
 + Response 204
