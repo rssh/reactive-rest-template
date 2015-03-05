@@ -26,7 +26,7 @@ trait DefaultRESTController[Model, Id] extends Controller with RequestMerger {
     DAO.find(page = page, pageSize = defaultPageSize).map(documents => documents.size match {
       case 0 =>
         Logger.info("Cannot find any documents.")
-        NoContent
+        Ok(Json.toJson(Seq()))
       case _ =>
         Ok(Json.toJson(documents.map(listFormatter.writes)))
     })
@@ -86,7 +86,7 @@ trait DefaultRESTController[Model, Id] extends Controller with RequestMerger {
       case Some(document) => DAO.removeById(id).map(lastError => lastError.ok match {
         case true =>
           Logger.info("Document #" + id + " removed.")
-          Ok
+          NoContent
         case false =>
           Logger.error("Document is rejected by DB with message: " + lastError.message)
           InternalServerError(Json.toJson(ErrorWrapper.internalServerError))
